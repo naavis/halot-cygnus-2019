@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Haloilmiöt tietokoneessa</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/beige.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? 'css/print/pdf.css'
+        : 'css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Haloilmiöt tietokoneessa</h1>
+          <h4>Samuli Vuorinen</h4>
+          <h4>27.7.2019</h4>
+        </section>
+
+        <section>
+          <section data-background-image="images/tuijottelua.jpg">
+            <h1 style="color: white">Taivaalle tuijottelua jo vuodesta 1988</h1>
+          </section>
+          <section>
+            <h2>Kuka?</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr">
+              <div style="grid-column: 1;">
+                <ul>
+                  <li>Pitkän linjan tähtiharrastaja</li>
+                  <li>Ohjelmistoinsinööri päiväsaikaan</li>
+                </ul>
+              </div>
+
+              <div style="grid-column: 2;">
+                <img style="max-height: unset;" src="images/omakuva_kiroilua.PNG" />
+                <p style="font-size: 0.5em;">Kuva: Janne Kari</p>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <h2>HaloRay</h2>
+          <img height="500" src="images/haloray-screenshot.jpg" />
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        hash: true,
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
