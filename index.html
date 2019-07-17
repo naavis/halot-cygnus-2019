@@ -59,6 +59,10 @@
           </section>
         </section>
 
+        <section data-background-image="images/halotaustakuva.jpg">
+          <h2 style="color: white">Mitä haloilmiöt ovat?</h2>
+        </section>
+
         <section>
           <h3>Hienoja 3D-kuvia</h3>
           <canvas id="threejstest" width="700" height="700"></canvas>
@@ -68,11 +72,13 @@
               alpha: true,
               antialias: true
             });
-            let scene = new THREE.Scene();
+
             let canvasSize = new THREE.Vector2();
             renderer.getSize(canvasSize);
             let aspectRatio = canvasSize.x / canvasSize.y;
             let camera = new THREE.PerspectiveCamera(45, aspectRatio, 0.1, 1000);
+
+            let scene = new THREE.Scene();
             var light = new THREE.HemisphereLight(0xffffff, 0x0f0f0f, 1);
             scene.add(light);
 
@@ -106,10 +112,12 @@
             let rayGeometry = new THREE.Geometry();
             rayGeometry.vertices.push(rayOrigin);
             rayGeometry.vertices.push(intersectionPoints[0].point);
-            let rayMaterial = new THREE.LineBasicMaterial({
-              color: 0x000000
-            });
-            let rayLineMesh = new THREE.Line(rayGeometry, rayMaterial);
+            let rayLineMesh = new THREE.Line(
+              rayGeometry,
+              new THREE.LineBasicMaterial({
+                color: 0x000000
+              })
+            );
             scene.add(rayLineMesh);
 
             let t = 0;
@@ -122,6 +130,25 @@
             }
             animate();
           </script>
+        </section>
+        <section>
+          <h2>Nopeus</h2>
+          <ul>
+            <li class="fragment">
+              Intel i7-3770K
+              <ul>
+                <li class="fragment">Kellotaajuus 3,40 GHz</li>
+                <li class="fragment">4 ydintä</li>
+              </ul>
+            </li>
+            <li class="fragment">
+              NVIDIA Geforce GTX 1070
+              <ul>
+                <li class="fragment">Kellotaajuus 1,50 GHz</li>
+                <li class="fragment">1920 ydintä<span class="fragment"> !!!</span></li>
+              </ul>
+            </li>
+          </ul>
         </section>
 
         <section>
