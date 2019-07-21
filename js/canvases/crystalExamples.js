@@ -17,13 +17,49 @@
         return new THREE.Mesh(geometry, iceMaterial);
       };
 
-      const getCrystal = function(caRatio) {
-        const geometry = getCrystalGeometry(caRatio);
+      const getWireframeMesh = function(geometry) {
         const wireframe = getWireframe(geometry);
         const mesh = getMesh(geometry);
         let group = new THREE.Group();
         group.add(wireframe);
         group.add(mesh);
+        return group;
+      };
+
+      const getCrystal = function(caRatio) {
+        const geometry = getCrystalGeometry(caRatio);
+        return getWireframeMesh(geometry);
+      };
+
+      const getPyramidCrystal = function() {
+        const bodyGeometry = new THREE.CylinderGeometry(1, 1, 1, 6, 1, true);
+        const topGeometry = new THREE.CylinderGeometry(0.5, 1, 0.5, 6, 1, true);
+        const bottomGeometry = new THREE.CylinderGeometry(1, 0.5, 0.5, 6, 1, true);
+        const topCapGeometry = new THREE.CircleGeometry(0.5, 6);
+        const bottomCapGeometry = new THREE.CircleGeometry(0.5, 6);
+
+        const topMesh = getWireframeMesh(topGeometry);
+        topMesh.position.y = 0.75;
+
+        const bottomMesh = getWireframeMesh(bottomGeometry);
+        bottomMesh.position.y = -0.75;
+
+        const topCapMesh = getWireframeMesh(topCapGeometry);
+        topCapMesh.position.y = 1.0;
+        topCapMesh.rotation.z = Math.PI / 6;
+        topCapMesh.rotation.x = -0.5 * Math.PI;
+
+        const bottomCapMesh = getWireframeMesh(bottomCapGeometry);
+        bottomCapMesh.position.y = -1.0;
+        bottomCapMesh.rotation.z = Math.PI / 6;
+        bottomCapMesh.rotation.x = 0.5 * Math.PI;
+
+        let group = new THREE.Group();
+        group.add(getWireframeMesh(bodyGeometry));
+        group.add(topMesh);
+        group.add(bottomMesh);
+        group.add(topCapMesh);
+        group.add(bottomCapMesh);
         return group;
       };
 
@@ -49,6 +85,9 @@
       columnCrystal.rotateOnWorldAxis(new THREE.Vector3(1.0, 0.0, 0.0), Math.PI / 2.0);
       scene.add(columnCrystal);
 
+      const pyramidCrystal = getPyramidCrystal();
+      scene.add(pyramidCrystal);
+
       let t = 0;
       let instance = { active: false };
       function animate() {
@@ -62,8 +101,12 @@
         columnCrystal.position.x = 1.5;
         columnCrystal.scale.x = columnCrystal.scale.y = columnCrystal.scale.z = 0.5;
 
-        camera.position.set(0.0, 1.0, 5.0);
-        camera.lookAt(new THREE.Vector3(0.0, 0.0, 0.0));
+        pyramidCrystal.rotation.y = t;
+        pyramidCrystal.position.y = -1.5;
+        pyramidCrystal.position.z = 1.0;
+
+        camera.position.set(0.0, 1.0, 6.0);
+        camera.lookAt(new THREE.Vector3(0.0, -1.0, 0.0));
         t = t + 0.005;
         renderer.render(scene, camera);
       }
