@@ -47,90 +47,116 @@
               <div style="grid-column: 1;">
                 <ul>
                   <li>Pitkän linjan tähtiharrastaja</li>
-                  <li>Ohjelmistoinsinööri päiväsaikaan</li>
+                  <li data-fragment-index="1" class="fragment">Ohjelmistoinsinööri päiväsaikaan</li>
+                  <li data-fragment-index="2" class="fragment">
+                    Alkujaan Lohjalta, nykyään Helsingissä
+                  </li>
                 </ul>
               </div>
 
               <div style="grid-column: 2;">
-                <img style="max-height: unset;" src="images/omakuva_kiroilua.PNG" />
-                <p style="font-size: 0.5em;">Kuva: Janne Kari</p>
+                <div data-fragment-index="1" class="fragment fade-out">
+                  <img style="max-height: unset;" src="images/omakuva_kiroilua.PNG" />
+                  <p style="font-size: 0.5em;">Kuva: Janne Kari</p>
+                </div>
+                <div data-fragment-index="1" class="fragment fade-in">
+                  <img src="images/tuleva-ammatti.jpg" style="max-height: unset;" />
+                </div>
               </div>
             </div>
           </section>
         </section>
 
-        <section data-background-image="images/halotaustakuva.jpg">
-          <h2 style="color: white">Mitä haloilmiöt ovat?</h2>
+        <section>
+          <section data-background-image="images/halotaustakuva.jpg">
+            <h2 style="color: white">Mitä haloilmiöt ovat?</h2>
+          </section>
+
+          <section>
+            <h2>Jääkiteitä + auringonvaloa = haloja</h2>
+          </section>
         </section>
 
         <section>
-          <h3>Hienoja 3D-kuvia</h3>
-          <canvas id="threejstest" width="700" height="700"></canvas>
-          <script>
-            let renderer = new THREE.WebGLRenderer({
-              canvas: threejstest,
-              alpha: true,
-              antialias: true
-            });
+          <section data-background-image="images/the-matrix.jpg">
+            <h2 style="color: white">Simulaatio</h2>
+          </section>
 
-            let canvasSize = new THREE.Vector2();
-            renderer.getSize(canvasSize);
-            let aspectRatio = canvasSize.x / canvasSize.y;
-            let camera = new THREE.PerspectiveCamera(45, aspectRatio, 0.1, 1000);
+          <section>
+            <h3>Hienoja 3D-kuvia</h3>
+            <canvas id="threejstest" width="700" height="700"></canvas>
+            <script>
+              let renderer = new THREE.WebGLRenderer({
+                canvas: threejstest,
+                alpha: true,
+                antialias: true
+              });
 
-            let scene = new THREE.Scene();
-            var light = new THREE.HemisphereLight(0xffffff, 0x0f0f0f, 1);
-            scene.add(light);
+              let canvasSize = new THREE.Vector2();
+              renderer.getSize(canvasSize);
+              let aspectRatio = canvasSize.x / canvasSize.y;
+              let camera = new THREE.PerspectiveCamera(45, aspectRatio, 0.1, 1000);
 
-            // Hexagonal ice crystal geometry
-            let crystal = new THREE.CylinderGeometry(1, 1, 1, 6, 1);
+              let scene = new THREE.Scene();
+              var light = new THREE.HemisphereLight(0xffffff, 0x0f0f0f, 1);
+              scene.add(light);
 
-            // Edges of crystal
-            let edges = new THREE.EdgesGeometry(crystal);
-            let line = new THREE.LineSegments(
-              edges,
-              new THREE.LineBasicMaterial({ color: 0x000000 })
-            );
-            scene.add(line);
+              // Hexagonal ice crystal geometry
+              let crystal = new THREE.CylinderGeometry(1, 1, 1, 6, 1);
 
-            // Base material for crystal
-            let crystalMaterial = new THREE.MeshStandardMaterial({
-              transparent: true,
-              opacity: 0.75,
-              color: 0xaaccff
-            });
-            let crystalMesh = new THREE.Mesh(crystal, crystalMaterial);
-            scene.add(crystalMesh);
+              // Edges of crystal
+              let edges = new THREE.EdgesGeometry(crystal);
+              let line = new THREE.LineSegments(
+                edges,
+                new THREE.LineBasicMaterial({ color: 0x000000 })
+              );
+              scene.add(line);
 
-            // Cast ray to crystal
-            let rayOrigin = new THREE.Vector3(1.0, 3.0, 0.0);
-            let rayDir = new THREE.Vector3(-0.2, -1.0, 0.0).normalize();
-            let raycaster = new THREE.Raycaster(rayOrigin, rayDir);
-            let intersectionPoints = raycaster.intersectObject(crystalMesh);
+              // Base material for crystal
+              let crystalMaterial = new THREE.MeshStandardMaterial({
+                transparent: true,
+                opacity: 0.75,
+                color: 0xaaccff
+              });
+              let crystalMesh = new THREE.Mesh(crystal, crystalMaterial);
+              scene.add(crystalMesh);
 
-            // Draw ray
-            let rayGeometry = new THREE.Geometry();
-            rayGeometry.vertices.push(rayOrigin);
-            rayGeometry.vertices.push(intersectionPoints[0].point);
-            let rayLineMesh = new THREE.Line(
-              rayGeometry,
-              new THREE.LineBasicMaterial({
-                color: 0x000000
-              })
-            );
-            scene.add(rayLineMesh);
+              // Cast ray to crystal
+              let rayOrigin = new THREE.Vector3(1.0, 3.0, 0.0);
+              let rayDir = new THREE.Vector3(-0.2, -1.0, 0.0).normalize();
+              let raycaster = new THREE.Raycaster(rayOrigin, rayDir);
+              let intersectionPoints = raycaster.intersectObject(crystalMesh);
 
-            let t = 0;
-            function animate() {
-              camera.position.set(5.0 * Math.sin(t), 1.0, 5.0 * Math.cos(t));
-              camera.lookAt(new THREE.Vector3(0.0, 0.0, 0.0));
-              t = t + 0.005;
-              requestAnimationFrame(animate);
-              renderer.render(scene, camera);
-            }
-            animate();
-          </script>
+              // Draw ray
+              let rayGeometry = new THREE.Geometry();
+              rayGeometry.vertices.push(rayOrigin);
+              rayGeometry.vertices.push(intersectionPoints[0].point);
+              let rayLineMesh = new THREE.Line(
+                rayGeometry,
+                new THREE.LineBasicMaterial({
+                  color: 0x000000
+                })
+              );
+              scene.add(rayLineMesh);
+
+              let t = 0;
+              function animate() {
+                camera.position.set(5.0 * Math.sin(t), 1.0, 5.0 * Math.cos(t));
+                camera.lookAt(new THREE.Vector3(0.0, 0.0, 0.0));
+                t = t + 0.005;
+                requestAnimationFrame(animate);
+                renderer.render(scene, camera);
+              }
+              animate();
+            </script>
+          </section>
         </section>
+
+        <section>
+          <h3>HaloPoint 2.0 - Jukka Ruoskanen</h3>
+          <img src="images/halopoint.PNG" height="500" />
+        </section>
+
         <section>
           <h2>Nopeus</h2>
           <ul>
@@ -155,6 +181,26 @@
           <h2>HaloRay</h2>
           <img height="500" src="images/haloray-screenshot.jpg" />
         </section>
+
+        <section>
+          <section><h2>Vertailu</h2></section>
+
+          <section>
+            <h3>HaloPoint 2.0</h3>
+            <img src="images/halopoint_column_5million_rays_5m11s.png" height="400px" />
+            <p>5 000 000 sädettä, 5 min 11 s</p>
+          </section>
+
+          <section>
+            <h3>HaloRay</h3>
+            <img src="images/haloray_column_5billion_rays_23s.png" height="400px" />
+            <p>
+              <span class="fragment">5 000 000 000 sädettä</span
+              ><span class="fragment">, 23 s</span>
+            </p>
+          </section>
+        </section>
+
         <section>
           <h2>Tulossa</h2>
           <ul>
