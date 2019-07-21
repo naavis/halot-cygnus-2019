@@ -96,13 +96,13 @@
         requestAnimationFrame(animate, canvas);
         if (!instance.active || canvas_defaults.paused) return;
 
-        plateCrystal.rotation.y = t;
+        plateCrystal.rotation.y = -t;
         plateCrystal.position.x = -2;
 
-        columnCrystal.rotation.z = -t;
+        columnCrystal.rotation.z = t;
         columnCrystal.position.x = 2;
 
-        pyramidCrystal.rotation.y = t;
+        pyramidCrystal.rotation.y = -t;
         pyramidCrystal.position.y = -1.5;
         pyramidCrystal.position.z = 1.0;
 
