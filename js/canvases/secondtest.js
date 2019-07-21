@@ -13,7 +13,7 @@
       let camera = new THREE.PerspectiveCamera(45, aspectRatio, 0.1, 1000);
 
       let scene = new THREE.Scene();
-      var light = new THREE.HemisphereLight(0xffffff, 0x0f0f0f, 1);
+      let light = new THREE.HemisphereLight(0xffffff, 0x0f0f0f, 1);
       scene.add(light);
 
       // Hexagonal ice crystal geometry
@@ -34,7 +34,7 @@
       scene.add(crystalMesh);
 
       let t = 0;
-      var instance = { active: false };
+      let instance = { active: false };
       function animate() {
         requestAnimationFrame(animate, canvas);
         if (!instance.active || canvas_defaults.paused) return;

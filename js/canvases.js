@@ -5,8 +5,6 @@
     addListener: function(event, listener) {
       eventEmitter.addListener(event, listener);
     },
-    width: 320,
-    height: 240,
     paused: false,
     wireframe: false
   };
