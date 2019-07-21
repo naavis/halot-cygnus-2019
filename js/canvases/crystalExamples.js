@@ -83,9 +83,11 @@
 
       const columnCrystal = getCrystal(5.0);
       columnCrystal.rotateOnWorldAxis(new THREE.Vector3(1.0, 0.0, 0.0), Math.PI / 2.0);
+      columnCrystal.scale.x = columnCrystal.scale.y = columnCrystal.scale.z = 0.5;
       scene.add(columnCrystal);
 
       const pyramidCrystal = getPyramidCrystal();
+      pyramidCrystal.scale.x = pyramidCrystal.scale.y = pyramidCrystal.scale.z = 0.75;
       scene.add(pyramidCrystal);
 
       let t = 0;
@@ -95,11 +97,10 @@
         if (!instance.active || canvas_defaults.paused) return;
 
         plateCrystal.rotation.y = t;
-        plateCrystal.position.x = -1.5;
+        plateCrystal.position.x = -2;
 
         columnCrystal.rotation.z = -t;
-        columnCrystal.position.x = 1.5;
-        columnCrystal.scale.x = columnCrystal.scale.y = columnCrystal.scale.z = 0.5;
+        columnCrystal.position.x = 2;
 
         pyramidCrystal.rotation.y = t;
         pyramidCrystal.position.y = -1.5;
