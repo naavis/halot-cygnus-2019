@@ -124,6 +124,9 @@ module.exports = grunt => {
         files: ['gruntfile.js', 'js/reveal.js'],
         tasks: 'js'
       },
+      canvases: {
+        files: ['js/canvases.js', 'js/canvases/*.js']
+      },
       theme: {
         files: [
           'css/theme/source/*.sass',
