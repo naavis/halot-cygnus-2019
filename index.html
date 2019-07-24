@@ -67,7 +67,20 @@
           </section>
           <section>
             <h2>Laattakidehalot</h2>
-            <canvas data-content="plateCrystals" width="700" height="700"></canvas>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; ">
+              <canvas
+                style="grid-column: 1; grid-row: 1;"
+                data-content="plateCrystals"
+                width="300"
+                height="500"
+              ></canvas>
+              <img
+                src="images/plate_crystals_anne_vaisanen.jpg"
+                style="grid-column: 2; grid-row: 1;"
+                height="500"
+              />
+              <p style="font-size: 0.45em; margin-top: 0px; grid-column: 2;">Kuva: Anne Väisänen</p>
+            </div>
           </section>
           <section>
             <h2>Pylväskidehalot</h2>
@@ -137,23 +150,50 @@
         </section>
 
         <section>
-          <h2>Nopeus</h2>
-          <ul>
-            <li class="fragment">
-              Intel i7-3770K
-              <ul>
-                <li class="fragment">Kellotaajuus 3,40 GHz</li>
-                <li class="fragment">4 ydintä</li>
-              </ul>
-            </li>
-            <li class="fragment">
-              NVIDIA Geforce GTX 1070
-              <ul>
-                <li class="fragment">Kellotaajuus 1,50 GHz</li>
-                <li class="fragment">1920 ydintä<span class="fragment"> !!!</span></li>
-              </ul>
-            </li>
-          </ul>
+          <section>
+            <h2>Nopeus</h2>
+            <ul>
+              <li class="fragment" data-fragment-index="1">
+                Prosessori <span class="fragment" data-fragment-index="6">= Formula 1</span>
+                <ul>
+                  <li class="fragment fade-in-then-semi-out" data-fragment-index="2">
+                    Suorittaa äärimmäisen nopeasti yhden asian
+                  </li>
+                </ul>
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                Näytönohjain <span class="fragment" data-fragment-index="6">= Tavarajuna</span>
+                <ul>
+                  <li class="fragment fade-in-then-semi-out" data-fragment-index="4">
+                    Suorittaa yhden asian hieman hitaammin, mutta...
+                  </li>
+                  <li class="fragment fade-in-then-semi-out" data-fragment-index="5">
+                    Kykenee tekemään tuhansia asioita yhtä aikaa
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Nopeus</h2>
+            <ul>
+              <li class="fragment">
+                Intel i7-3770K
+                <ul>
+                  <li class="fragment">Kellotaajuus 3,40 GHz</li>
+                  <li class="fragment">4 ydintä</li>
+                </ul>
+              </li>
+              <li class="fragment">
+                NVIDIA Geforce GTX 1070
+                <ul>
+                  <li class="fragment">Kellotaajuus 1,50 GHz</li>
+                  <li class="fragment">1920 ydintä<span class="fragment"> !!!</span></li>
+                </ul>
+              </li>
+            </ul>
+          </section>
         </section>
 
         <section>

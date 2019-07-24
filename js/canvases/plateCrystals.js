@@ -47,6 +47,7 @@
       scene.add(light);
 
       const plateCrystal = getCrystal(0.5);
+      plateCrystal.scale.x = plateCrystal.scale.y = plateCrystal.scale.z = 1.25;
       scene.add(plateCrystal);
 
       let t = 0;
