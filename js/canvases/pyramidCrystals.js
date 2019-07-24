@@ -79,7 +79,7 @@
       scene.add(light);
 
       const pyramidCrystal = getPyramidCrystal();
-      pyramidCrystal.scale.x = pyramidCrystal.scale.y = pyramidCrystal.scale.z = 0.75;
+      pyramidCrystal.scale.x = pyramidCrystal.scale.y = pyramidCrystal.scale.z = 1.5;
       scene.add(pyramidCrystal);
 
       let t = 0;

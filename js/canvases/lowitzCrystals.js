@@ -47,7 +47,7 @@
       scene.add(light);
 
       const columnCrystal = getCrystal(1.0);
-      columnCrystal.scale.x = columnCrystal.scale.y = columnCrystal.scale.z = 0.9;
+      columnCrystal.scale.x = columnCrystal.scale.y = columnCrystal.scale.z = 1.5;
       scene.add(columnCrystal);
 
       let t = 0;
