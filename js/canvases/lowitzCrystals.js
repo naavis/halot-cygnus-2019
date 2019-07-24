@@ -46,8 +46,8 @@
       let light = new THREE.HemisphereLight(0xffffff, 0x0f0f0f, 1);
       scene.add(light);
 
-      const columnCrystal = getCrystal(7.0);
-      columnCrystal.scale.x = columnCrystal.scale.y = columnCrystal.scale.z = 2.5;
+      const columnCrystal = getCrystal(1.0);
+      columnCrystal.scale.x = columnCrystal.scale.y = columnCrystal.scale.z = 0.9;
       scene.add(columnCrystal);
 
       let t = 0;
@@ -60,7 +60,7 @@
         yRotMatrix.makeRotationY(Math.PI / 6.0);
 
         let xRotMatrix = new THREE.Matrix4();
-        xRotMatrix.makeRotationX(Math.PI / 2.0 + 0.5 * Math.sin(2 * t));
+        xRotMatrix.makeRotationX(t);
 
         let secondYRotMatrix = new THREE.Matrix4();
         secondYRotMatrix.makeRotationY(-Math.PI / 7.0);

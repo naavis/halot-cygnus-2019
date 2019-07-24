@@ -46,8 +46,8 @@
       let light = new THREE.HemisphereLight(0xffffff, 0x0f0f0f, 1);
       scene.add(light);
 
-      const columnCrystal = getCrystal(7.0);
-      columnCrystal.scale.x = columnCrystal.scale.y = columnCrystal.scale.z = 2.5;
+      const columnCrystal = getCrystal(3.0);
+      columnCrystal.scale.x = columnCrystal.scale.y = columnCrystal.scale.z = 2.0;
       scene.add(columnCrystal);
 
       let t = 0;
