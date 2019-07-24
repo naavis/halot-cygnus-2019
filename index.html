@@ -49,7 +49,7 @@
           </section>
 
           <section>
-            <h2>Jääkiteitä + auringonvaloa = haloja</h2>
+            <h2>Jääkiteitä + valoa = haloja</h2>
           </section>
           <section>
             <h3>Jääkidemuodot</h3>
@@ -62,29 +62,50 @@
           </section>
           <section>
             <h2>Sattumanvaraiset kiteet</h2>
-            <img src="images/22degree_luomanen.jpg" height="475" />
+            <img
+              src="images/22degree_luomanen.jpg"
+              style="margin-left: auto; margin-right: auto;"
+              height="475"
+            />
             <p style="font-size: 0.45em; margin-top: 0px;">Kuva: Jari Luomanen</p>
           </section>
           <section>
             <h2>Laattakidehalot</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; ">
+            <div style="display: grid; grid-template-columns: 2fr 3fr; ">
               <canvas
-                style="grid-column: 1; grid-row: 1;"
                 data-content="plateCrystals"
                 width="300"
                 height="500"
+                style="grid-column: 1; grid-row: 1;"
               ></canvas>
               <img
                 src="images/plate_crystals_anne_vaisanen.jpg"
-                style="grid-column: 2; grid-row: 1;"
-                height="500"
+                style="grid-column: 2; grid-row: 1; margin-left: auto; margin-right: auto; max-height: 475px;"
               />
-              <p style="font-size: 0.45em; margin-top: 0px; grid-column: 2;">Kuva: Anne Väisänen</p>
+              <p style="font-size: 0.45em; margin-top: 0px; grid-column: 2;">
+                Kuva: Anne Väisänen
+              </p>
             </div>
           </section>
           <section>
             <h2>Pylväskidehalot</h2>
-            <canvas data-content="columnCrystals" width="700" height="700"></canvas>
+            <div style="display: inline-grid; grid-template-columns: 2fr 3fr;">
+              <canvas
+                data-content="columnCrystals"
+                width="300"
+                height="300"
+                style="grid-column: 1; grid-row: 1;"
+              ></canvas>
+              <img
+                src="images/column_display_janne_voutilainen.jpg"
+                style="grid-column: 2; grid-row: 1; max-height: 475px;"
+              />
+              <p
+                style="font-size: 0.45em; margin-top: 0px; grid-column: 2; margin-left: auto; margin-right: auto;"
+              >
+                Kuva: Janne Voutilainen
+              </p>
+            </div>
           </section>
           <section>
             <h2>Parry-halot</h2>
@@ -92,7 +113,7 @@
           </section>
           <section>
             <h2>Lowitz-halot</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr;">
+            <div style="display: grid; grid-template-columns: 2fr 3fr;">
               <canvas
                 style="grid-column: 1; grid-row: 1;"
                 data-content="lowitzCrystals"
@@ -102,7 +123,7 @@
 
               <img
                 src="images/lowitz_luomanen.jpg"
-                style="min-width: 300px; grid-column: 2; grid-row: 1;"
+                style="grid-column: 2; grid-row: 1; margin-left: auto; margin-right: auto; max-height: 475px;"
               />
               <p style="font-size: 0.45em; margin-top: 0px; grid-column: 2;">
                 Kuva: Jari Luomanen
@@ -111,7 +132,7 @@
           </section>
           <section>
             <h2>Pyramidihalot</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr;">
+            <div style="display: grid; grid-template-columns: 2fr 3fr;">
               <canvas
                 style="grid-column: 1; grid-row: 1;"
                 data-content="pyramidCrystals"
@@ -120,9 +141,8 @@
               ></canvas>
 
               <img
-                style="grid-column: 2; grid-row: 1;"
+                style="grid-column: 2; grid-row: 1; margin-left: auto; margin-right: auto; max-height: 475px;"
                 src="images/pyramidhalos.jpg"
-                style="min-height:300px"
               />
             </div>
           </section>
@@ -142,11 +162,11 @@
             <h3>Toinen hieno 3D-kuva</h3>
             <canvas data-content="secondtest" width="700" height="700"></canvas>
           </section>
-        </section>
 
-        <section>
-          <h3>HaloPoint 2.0 - Jukka Ruoskanen</h3>
-          <img src="images/halopoint.PNG" height="500" />
+          <section>
+            <h3>HaloPoint 2.0 - Jukka Ruoskanen</h3>
+            <img src="images/halopoint.PNG" height="500" />
+          </section>
         </section>
 
         <section>
@@ -232,11 +252,17 @@
 
           <section>
             <h3>HaloRay</h3>
-            <img src="images/haloray_column_5billion_rays_23s.png" height="400px" />
+            <img src="images/haloray_column_500million_rays_23s.png" height="400px" />
             <p>
-              <span class="fragment">5 000 000 000 sädettä</span
-              ><span class="fragment">, 23 s</span>
+              <span class="fragment">500 000 000 sädettä</span><span class="fragment">, 23 s</span>
             </p>
+          </section>
+
+          <section>
+            <h3>Vertailu</h3>
+            <p>HaloPoint 2.0 - 16 000 sädettä / s</p>
+            <p>HaloRay - 22 000 000 sädettä / s</p>
+            <p class="fragment"><b>~1400x ero</b></p>
           </section>
         </section>
 
