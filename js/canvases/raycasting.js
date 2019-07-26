@@ -87,7 +87,6 @@
       const invisibleCrystalMaterial = new THREE.MeshStandardMaterial({
         transparent: true,
         opacity: 0.0,
-        color: 0x77aaff,
         side: THREE.DoubleSide
       });
       const invisibleCrystalMesh = new THREE.Mesh(
@@ -104,28 +103,25 @@
       const crystalMesh = new THREE.Mesh(crystal, crystalMaterial);
       scene.add(crystalMesh);
 
-      camera.position.set(5.0, 1.0, 5.0);
-      camera.lookAt(new THREE.Vector3(0.0, -0.5, 0.0));
-
       let t = 0;
       let instance = { active: false };
       function animate() {
         requestAnimationFrame(animate, canvas);
         if (!instance.active || canvas_defaults.paused) return;
 
+        camera.position.set(3.0 + Math.sin(t), 1.0, 3.0 + Math.cos(t));
+        camera.lookAt(new THREE.Vector3(0.0, -0.5, 0.0));
+
         const rayOrigin = new THREE.Vector3(
-          10.0 * Math.sin(t),
-          10.0 * Math.cos(t),
+          10.0 + Math.sin(t),
+          15.0 + Math.cos(t),
           0.0
         );
+
         const rayDir = rayOrigin
           .clone()
           .negate()
           .normalize();
-
-        invisibleCrystalMesh.rotation.y = t;
-        crystalMesh.rotation.y = t;
-        line.rotation.y = t;
 
         const rayLineMesh = traceRay(invisibleCrystalMesh, rayOrigin, rayDir);
         scene.add(rayLineMesh);

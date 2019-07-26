@@ -36,8 +36,13 @@
                 <img src="images/tuleva-ammatti.jpg" style="height: 400px" />
               </div>
               <div style="grid-column: 2;">
-                <img style="height: 300px; margin-bottom: 0px;" src="images/omakuva_kiroilua.PNG" />
-                <p style="font-size: 0.25em; margin-top: 0px;">Kuva: Janne Kari</p>
+                <img
+                  style="height: 300px; margin-bottom: 0px;"
+                  src="images/omakuva_kiroilua.PNG"
+                />
+                <p style="font-size: 0.25em; margin-top: 0px;">
+                  Kuva: Janne Kari
+                </p>
               </div>
             </div>
           </section>
@@ -59,7 +64,11 @@
               <li>Pylväskiteet</li>
               <li>Pyramidikiteet</li>
             </ul>
-            <canvas data-content="crystalExamples" width="900" height="400"></canvas>
+            <canvas
+              data-content="crystalExamples"
+              width="900"
+              height="400"
+            ></canvas>
           </section>
 
           <section>
@@ -69,7 +78,9 @@
               style="margin-left: auto; margin-right: auto;"
               height="475"
             />
-            <p style="font-size: 0.45em; margin-top: 0px;">Kuva: Jari Luomanen</p>
+            <p style="font-size: 0.45em; margin-top: 0px;">
+              Kuva: Jari Luomanen
+            </p>
           </section>
 
           <section>
@@ -125,7 +136,9 @@
                 src="images/parry_halos_luomanen.jpg"
                 style="grid-column: 2; grid-row: 1; margin-left: auto; margin-right: auto; max-height: 475px;"
               />
-              <p style="font-size: 0.45em; margin-top: 0px; grid-column: 2;">Kuva: Jari Luomanen</p>
+              <p style="font-size: 0.45em; margin-top: 0px; grid-column: 2;">
+                Kuva: Jari Luomanen
+              </p>
             </div>
           </section>
 
@@ -171,6 +184,23 @@
           </section>
 
           <section>
+            <h3>Perusperiaate</h3>
+            <ol>
+              <li>
+                Arvotaan
+                <ul>
+                  <li>Kiteen muoto</li>
+                  <li>Kiteen asento</li>
+                  <li>Valonsäde</li>
+                </ul>
+              </li>
+              <li>Seurataan valonsädettä kiteen läpi</li>
+              <li>Kirjataan mihin suuntaan valonsäde poistuu</li>
+              <li>Toistetaan miljardi kertaa</li>
+            </ol>
+          </section>
+
+          <section>
             <h3>Säteen kuljetus</h3>
             <canvas data-content="raycasting" width="700" height="700"></canvas>
           </section>
@@ -186,20 +216,35 @@
             <h2>Nopeus</h2>
             <ul>
               <li class="fragment" data-fragment-index="1">
-                Prosessori <span class="fragment" data-fragment-index="6">= Formula 1</span>
+                Prosessori
+                <span class="fragment" data-fragment-index="6"
+                  >= Formula 1</span
+                >
                 <ul>
-                  <li class="fragment fade-in-then-semi-out" data-fragment-index="2">
+                  <li
+                    class="fragment fade-in-then-semi-out"
+                    data-fragment-index="2"
+                  >
                     Suorittaa äärimmäisen nopeasti yhden asian
                   </li>
                 </ul>
               </li>
               <li class="fragment" data-fragment-index="3">
-                Näytönohjain <span class="fragment" data-fragment-index="6">= Tavarajuna</span>
+                Näytönohjain
+                <span class="fragment" data-fragment-index="6"
+                  >= Tavarajuna</span
+                >
                 <ul>
-                  <li class="fragment fade-in-then-semi-out" data-fragment-index="4">
+                  <li
+                    class="fragment fade-in-then-semi-out"
+                    data-fragment-index="4"
+                  >
                     Suorittaa yhden asian hieman hitaammin, mutta...
                   </li>
-                  <li class="fragment fade-in-then-semi-out" data-fragment-index="5">
+                  <li
+                    class="fragment fade-in-then-semi-out"
+                    data-fragment-index="5"
+                  >
                     Kykenee tekemään tuhansia asioita yhtä aikaa
                   </li>
                 </ul>
@@ -221,7 +266,9 @@
                 NVIDIA Geforce GTX 1070
                 <ul>
                   <li class="fragment">Kellotaajuus 1,50 GHz</li>
-                  <li class="fragment">1920 ydintä<span class="fragment"> !!!</span></li>
+                  <li class="fragment">
+                    1920 ydintä<span class="fragment"> !!!</span>
+                  </li>
                 </ul>
               </li>
             </ul>
@@ -259,15 +306,22 @@
 
           <section>
             <h3>HaloPoint 2.0</h3>
-            <img src="images/halopoint_column_5million_rays_5m11s.png" height="400px" />
+            <img
+              src="images/halopoint_column_5million_rays_5m11s.png"
+              height="400px"
+            />
             <p>5 000 000 sädettä, 5 min 11 s</p>
           </section>
 
           <section>
             <h3>HaloRay</h3>
-            <img src="images/haloray_column_500million_rays_23s.png" height="400px" />
+            <img
+              src="images/haloray_column_500million_rays_23s.png"
+              height="400px"
+            />
             <p>
-              <span class="fragment">500 000 000 sädettä</span><span class="fragment">, 23 s</span>
+              <span class="fragment">500 000 000 sädettä</span
+              ><span class="fragment">, 23 s</span>
             </p>
           </section>
 
@@ -310,9 +364,9 @@
         hash: true,
         viewDistance: 3,
         dependencies: [
-          { src: 'plugin/markdown/marked.js' },
-          { src: 'plugin/markdown/markdown.js' },
-          { src: 'plugin/notes/notes.js', async: true }
+          { src: "plugin/markdown/marked.js" },
+          { src: "plugin/markdown/markdown.js" },
+          { src: "plugin/notes/notes.js", async: true }
         ]
       });
     </script>
