@@ -2,13 +2,59 @@
   window.canvases.raycasting = {
     initialize: function(canvas) {
       const refract = function(incoming, normal, eta) {
-        k = 1.0 - eta * eta * (1.0 - normal.dot(incoming) * normal.dot(incoming));
+        k =
+          1.0 - eta * eta * (1.0 - normal.dot(incoming) * normal.dot(incoming));
         if (k < 0.0) return new THREE.Vector3();
         else
           return incoming
             .clone()
             .multiplyScalar(eta)
-            .sub(normal.clone().multiplyScalar(eta * normal.dot(incoming) + Math.sqrt(k)));
+            .sub(
+              normal
+                .clone()
+                .multiplyScalar(eta * normal.dot(incoming) + Math.sqrt(k))
+            );
+      };
+
+      const traceRay = function(crystalMesh, rayOrigin, rayDir) {
+        // Cast ray to crystal
+        const raycaster = new THREE.Raycaster(
+          rayOrigin.clone(),
+          rayDir.clone()
+        );
+
+        // Draw ray
+        const rayGeometry = new THREE.Geometry();
+        rayGeometry.vertices.push(rayOrigin.clone());
+
+        for (i = 0; i < 10; ++i) {
+          const intersectionPoints = raycaster.intersectObject(crystalMesh);
+          if (intersectionPoints.length == 0) {
+            let endPoint = new THREE.Vector3();
+            rayGeometry.vertices.push(raycaster.ray.at(100000.0, endPoint));
+            break;
+          }
+          const hitPoint = intersectionPoints[0].point;
+          let hitPointNormal = intersectionPoints[0].face.normal.clone();
+          if (i != 0) hitPointNormal.negate();
+          rayGeometry.vertices.push(hitPoint);
+          const newRayDir = refract(
+            rayDir,
+            hitPointNormal,
+            i == 0 ? 1.0 / 1.33 : 1.33
+          );
+          raycaster.set(
+            hitPoint.clone().addScaledVector(rayDir, 0.001),
+            newRayDir
+          );
+        }
+
+        return new THREE.Line(
+          rayGeometry,
+          new THREE.LineBasicMaterial({
+            color: 0x000000
+          })
+        );
       };
 
       let renderer = new THREE.WebGLRenderer({
@@ -31,7 +77,10 @@
 
       // Edges of crystal
       let edges = new THREE.EdgesGeometry(crystal);
-      let line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x000000 }));
+      let line = new THREE.LineSegments(
+        edges,
+        new THREE.LineBasicMaterial({ color: 0x000000 })
+      );
       scene.add(line);
 
       // Base material for crystal
@@ -41,51 +90,33 @@
         color: 0x77aaff,
         side: THREE.DoubleSide
       });
-      let crystalMesh = new THREE.Mesh(crystal, crystalMaterial);
+      const crystalMesh = new THREE.Mesh(crystal, crystalMaterial);
       scene.add(crystalMesh);
 
-      // Cast ray to crystal
-      let rayOrigin = new THREE.Vector3(10.0, 10.0, 0.0);
-      let rayDir = new THREE.Vector3(-1.0, -1.0, 0.0).normalize();
-      let raycaster = new THREE.Raycaster(rayOrigin.clone(), rayDir.clone());
-
-      // Draw ray
-      let rayGeometry = new THREE.Geometry();
-      rayGeometry.vertices.push(rayOrigin);
-
-      for (i = 0; i < 5; ++i) {
-        const intersectionPoints = raycaster.intersectObject(crystalMesh);
-        if (intersectionPoints.length == 0) {
-          let endPoint = new THREE.Vector3();
-          rayGeometry.vertices.push(raycaster.ray.at(100000.0, endPoint));
-          break;
-        }
-        const hitPoint = intersectionPoints[0].point;
-        let hitPointNormal = intersectionPoints[0].face.normal;
-        if (i != 0) hitPointNormal.negate();
-        rayGeometry.vertices.push(hitPoint.clone());
-        const newRayDir = refract(rayDir, hitPointNormal, i == 0 ? 1.0 / 1.33 : 1.33);
-        raycaster.set(hitPoint.addScaledVector(rayDir, 0.01), newRayDir);
-      }
-
-      let rayLineMesh = new THREE.Line(
-        rayGeometry,
-        new THREE.LineBasicMaterial({
-          color: 0x000000
-        })
-      );
-      scene.add(rayLineMesh);
+      camera.position.set(5.0, 1.0, 5.0);
+      camera.lookAt(new THREE.Vector3(0.0, -0.5, 0.0));
 
       let t = 0;
       let instance = { active: false };
       function animate() {
         requestAnimationFrame(animate, canvas);
-
-        camera.position.set(5.0 * Math.sin(t), 1.0, 5.0 * Math.cos(t));
-        camera.lookAt(new THREE.Vector3(0.0, -0.5, 0.0));
-        t = t + 0.005;
         if (!instance.active || canvas_defaults.paused) return;
+
+        const rayOrigin = new THREE.Vector3(
+          10.0 + Math.sin(2 * t),
+          10.0 + Math.cos(2 * t),
+          0.0
+        );
+        const rayDir = rayOrigin
+          .clone()
+          .negate()
+          .normalize();
+
+        const rayLineMesh = traceRay(crystalMesh, rayOrigin, rayDir);
+        scene.add(rayLineMesh);
+        t = t + 0.01;
         renderer.render(scene, camera);
+        scene.remove(rayLineMesh);
       }
       animate();
       return instance;
