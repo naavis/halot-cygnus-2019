@@ -27,6 +27,10 @@
         <section>
           <section data-background-image="images/tuijottelua.jpg">
             <h1 style="color: white">Taivaalle tuijottelua jo vuodesta 1988</h1>
+            <aside class="notes">
+              Tähtiharrastaja, kohta 31-vuotias, koko ikä harrastusta muodossa
+              tai toisessa
+            </aside>
           </section>
 
           <section>
@@ -45,16 +49,29 @@
                 </p>
               </div>
             </div>
+            <aside class="notes">
+              Ohjelmistoinsinööri, helsinkiläinen, Kirkkonummen Komeetta,
+              tähtikuvaus, tietokonegrafiikka
+            </aside>
           </section>
         </section>
 
         <section>
           <section data-background-image="images/halotaustakuva.jpg">
             <h2 style="color: white">Mitä haloilmiöt ovat?</h2>
+            <aside class="notes">
+              Käydään kertauksen vuoksi halojen perusteet läpi. Kenelle halot
+              eivät ole tuttuja?
+            </aside>
           </section>
 
           <section>
             <h2>Jääkiteitä + valoa = haloja</h2>
+            <aside class="notes">
+              Haloilmiöitä syntyy kun yhdistetään tietynlaisia jääkiteitä ja
+              valoa. Valo taittuu kiteiden sisällä ja heijastuu niiden
+              pinnoista.
+            </aside>
           </section>
 
           <section>
@@ -69,6 +86,11 @@
               width="900"
               height="400"
             ></canvas>
+            <aside class="notes">
+              Vesijää muodostaa kuusikulmaisia kiteitä. Yleisimmät halomuodot
+              muodostuvat ns. laatta- ja pylväskiteistä. Pylväskiteet kuin
+              lyijykynän palasia. Kiteiden koko noin 0,1 mm.
+            </aside>
           </section>
 
           <section>
@@ -81,6 +103,11 @@
             <p style="font-size: 0.45em; margin-top: 0px;">
               Kuva: Jari Luomanen
             </p>
+            <aside class="notes">
+              Yleisin halomuoto, 22 ast. rengas. Syntyy sattumanvaraisissa
+              asennoissa olevista kiteistä. Todellisuudessa myös
+              yhteensulautuneita kiteitä.
+            </aside>
           </section>
 
           <section>
@@ -100,6 +127,9 @@
                 Kuva: Anne Väisänen
               </p>
             </div>
+            <aside class="notes">
+              Sivuauringot, horisonttirengas, zeniitinympäristön kaari
+            </aside>
           </section>
 
           <section>
@@ -121,6 +151,7 @@
                 Kuva: Janne Voutilainen
               </p>
             </div>
+            <aside class="notes">Yllä- ja allasivuavat kaaret</aside>
           </section>
 
           <section>
@@ -140,6 +171,9 @@
                 Kuva: Jari Luomanen
               </p>
             </div>
+            <aside class="notes">
+              Kuin pylväskiteet mutta prismasivu alaspäin.
+            </aside>
           </section>
 
           <section>
@@ -159,6 +193,10 @@
                 Kuva: Jari Luomanen
               </p>
             </div>
+            <aside class="notes">
+              Kuin Parry, mutta kide heilahtelee tai pyörii voimakkaasti yhden
+              akselin ympäri.
+            </aside>
           </section>
 
           <section>
@@ -176,15 +214,22 @@
               />
             </div>
           </section>
+          <aside class="notes">
+            Harvinaisempia kiteitä, muodostavat pääasiassa erilaisia renkaita
+            auringon ympärille.
+          </aside>
         </section>
 
         <section>
           <section data-background-image="images/the-matrix.jpg">
             <h2 style="color: white">Simulaatio</h2>
+            <aside class="notes">
+              Käydään läpi miten haloilmiöitä tutkitaan tietokoneella
+            </aside>
           </section>
 
           <section>
-            <h3>Perusperiaate</h3>
+            <h3>Simulointi</h3>
             <ol>
               <li>
                 Arvotaan
@@ -198,20 +243,57 @@
               <li>Kirjataan mihin suuntaan valonsäde poistuu</li>
               <li>Toistetaan miljardi kertaa</li>
             </ol>
+            <aside class="notes">
+              Arvotaan kiteen muoto ja asento annetuista jakaumista, samoin
+              valonsäteen tulosuunta ja aallonpituus.
+            </aside>
           </section>
 
           <section>
             <h3>Säteen kuljetus</h3>
             <canvas data-content="raycasting" width="700" height="700"></canvas>
+            <aside class="notes">Esimerkki säteen kulusta kiteen läpi</aside>
           </section>
 
           <section>
             <h3>HaloPoint 2.0 - Jukka Ruoskanen</h3>
             <img src="images/halopoint.PNG" height="500" />
+            <aside class="notes">
+              Yksi käytetyimmistä halosimulaattoreista. Monipuolinen.
+            </aside>
           </section>
         </section>
 
         <section>
+          <section>
+            <h2>Nykytilanne</h2>
+            <ul>
+              <li>
+                HaloPoint pääasiallinen työkalu
+                <ul class="fragment">
+                  <li>Päivitetty viimeksi 2011</li>
+                </ul>
+              </li>
+              <li class="fragment">Simulointi hidasta</li>
+              <li class="fragment">
+                Tyypillinen workflow:
+                <ol>
+                  <li class="fragment">Muutellaan asetuksia</li>
+                  <li class="fragment">Odotetaan 5-10 minuuttia</li>
+                  <li class="fragment">Tarkistetaan tulokset</li>
+                  <li class="fragment">Toistetaan ad nauseam</li>
+                </ol>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Voisiko tilannetta parantaa jotenkin?</h2>
+            <aside class="notes">
+              Eikö olisi mukavaa, jos asetuksia voisi säätää reaaliajassa?
+            </aside>
+          </section>
+
           <section>
             <h2>Nopeus</h2>
             <ul>
@@ -250,6 +332,11 @@
                 </ul>
               </li>
             </ul>
+            <aside class="notes">
+              Perinteisesti hyödynnetty prosessoria, yleensä yhtä ydintä.
+              Prosessoreissa nykyään useampi ydin, parhaimmillaan moninkertainen
+              nopeutus. Entä näytönohjaimet?
+            </aside>
           </section>
 
           <section>
@@ -272,6 +359,10 @@
                 </ul>
               </li>
             </ul>
+            <aside class="notes">
+              Tutkitaan miltä tilanne näyttää kotoa löytyvällä tietokoneella.
+              Suunniteltu kuvien käsittelyyn ja pelaamiseen.
+            </aside>
           </section>
           <section><h2>Voisiko näytönohjainta hyödyntää? 🤔</h2></section>
         </section>
@@ -280,6 +371,10 @@
           <section>
             <h2>HaloRay</h2>
             <img height="500" src="images/haloray-screenshot.jpg" />
+            <aside class="notes">
+              Lähdin kokeilemaan, tuloksena HaloRay. Kokonaan näytönohjaimella
+              toimiva halosimulaattori.
+            </aside>
           </section>
           <section>
             <h2>HaloRay</h2>
