@@ -84,11 +84,22 @@
       scene.add(line);
 
       // Base material for crystal
-      let crystalMaterial = new THREE.MeshStandardMaterial({
+      const invisibleCrystalMaterial = new THREE.MeshStandardMaterial({
         transparent: true,
-        opacity: 0.75,
+        opacity: 0.0,
         color: 0x77aaff,
         side: THREE.DoubleSide
+      });
+      const invisibleCrystalMesh = new THREE.Mesh(
+        crystal,
+        invisibleCrystalMaterial
+      );
+      scene.add(invisibleCrystalMesh);
+
+      const crystalMaterial = new THREE.MeshStandardMaterial({
+        transparent: true,
+        opacity: 0.75,
+        color: 0x77aaff
       });
       const crystalMesh = new THREE.Mesh(crystal, crystalMaterial);
       scene.add(crystalMesh);
@@ -103,8 +114,8 @@
         if (!instance.active || canvas_defaults.paused) return;
 
         const rayOrigin = new THREE.Vector3(
-          10.0 + Math.sin(2 * t),
-          10.0 + Math.cos(2 * t),
+          10.0 * Math.sin(t),
+          10.0 * Math.cos(t),
           0.0
         );
         const rayDir = rayOrigin
@@ -112,7 +123,11 @@
           .negate()
           .normalize();
 
-        const rayLineMesh = traceRay(crystalMesh, rayOrigin, rayDir);
+        invisibleCrystalMesh.rotation.y = t;
+        crystalMesh.rotation.y = t;
+        line.rotation.y = t;
+
+        const rayLineMesh = traceRay(invisibleCrystalMesh, rayOrigin, rayDir);
         scene.add(rayLineMesh);
         t = t + 0.01;
         renderer.render(scene, camera);
