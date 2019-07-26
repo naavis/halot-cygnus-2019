@@ -1,5 +1,5 @@
 (function() {
-  window.canvases.raycasttest = {
+  window.canvases.raycasting = {
     initialize: function(canvas) {
       const refract = function(incoming, normal, eta) {
         k = 1.0 - eta * eta * (1.0 - normal.dot(incoming) * normal.dot(incoming));
